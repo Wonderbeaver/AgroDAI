@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Crystal</h1>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+        </div>
+        <div class="row">
+            <div class="text-col">
+                <h1>Leveraging Earth Observation Data for Informed Agricultural Decision-Making</h1>
+                <a href="/home#content_1">Try now</a>
+            </div>
+            <div class="text-col">
+                <h1>Application for NASA Space App Challenge 2024</h1>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="content_1" id="content_1">
+            <div class="text-col">
+                <h1>What are you choosing?</h1>
+            </div>
+            <div class="row">
+                <a href="#information" class="challenge_description">
+                    <h1>Information</h1>
+                    <p>We can provide you with information about your geolocation, like: soil moisture, wind speed, soil erosion and etc. So you can make an informative decision</p>
+                </a>
+                <a href="#prediction" class="challenge_description" id="c_d_2">
+                    <h1>Prediction</h1>
+                    <p>We will analyze your geolocation and predict the vegetation index for different cultures and suggest you the crop and how to water them, what may help you get better quality of your crops and even saving some money on the water</p>
+                </a>
+                <a class="challenge_description" id="c_d_3">
+                    <h1>Disaster!</h1>  
+                    <p>You can find out whether there will be floods or droughts during the growth of your crop</p>
+                </a>
+            </div>
+        </div>
+
+        <div class="information" id="information">
+            <div class="text-col">
+                <h1>Information</h1>
+                <p>Fill the boxes with your coordinates to get the information</p>
+            </div>
+            <div class="row">
+                <form action="/get_info" method="post">
+                    <label for="lat">Latitude</label>
+                    <input type="text" name="lat" id="lat" placeholder="Enter the latitude">
+                    <label for="lon">Longitude</label>
+                    <input type="text" name="lon" id="lon" placeholder="Enter the longitude">
+                    <input type="submit" value="Get information">
+                </form>
+            </div>
+
+            {% if 'data' in session %}
+                <table id="table">
+                    <tr>
+                        <th>Date</th>
+                        <th>Max_temp</th>
+                        <th>Min_temp</th>
+                        <th>Precipitation </th>
+                        <th>Wind speed</th>
+                    </tr>
+                    {% for el in session['data'] %}
+                        <tr>
+                            <td>{{ el[0] }}</td>
+                            <td>{{ el[1] }}</td>
+                            <td>{{ el[2] }}</td>
+                            <td>{{ el[3] }}</td>
+                            <td>{{ el[4] }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+                <a href="{{ url_for('static', filename='data/data.xlsx') }}" download>Download Excel</a>
+            {% endif %}
+        </div>
+
+        <div class="prediction" id="prediction">
+            <div class="text-col">
+                <h1>Prediction</h1>
+            </div>
+
+            <div class="row">
+                <form action="predict" method="post">
+                <label for="soil_mos">Soil moisture (%)</label>
+                <input type="number" name="soil_mos" id="soil_mos" placeholder="Soil moisture (%)">
+                <label for="precip">Monthly precipitation level (mm)</label>
+                <input type="number" name="precip" id="precip" placeholder="Monthly precipitation level (mm)">
+                <label for="temp">Average daily soil temperature (C)</label>
+                <input type="number" name="temp" id="temp" placeholder="The average daily soil temperature (C)">
+                <label for="soil_type">Soil type</label>
+                <input type="text" name="soil_type" id="soil_type" placeholder="Soil type">
+                <label for="crop_type">Crop type</label>
+                <input type="text" name="crop_type" id="crop_type" placeholder="Crop type">
+                <label for="air_hum">Air humidity level (%)</label>
+                <input type="number" name="air_hum" id="air_hum" placeholder="Air humidity level (%)">
+                <label for="wind_speed">Wind speed (м/c)</label>
+                <input type="number" name="wind_speed" id="wind_speed" placeholder="Wind speed (м/c)">
+                <input type="submit" value="Get prediction">
+                </form>
+            </div>
+            {% if 'res' in session %}
+                <div style='
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 37.5vw;
+                min-height: 20vh;
+                color: #cbcdff;
+                padding: 20px;
+                box-shadow: 0 0 10px #cbcdff;
+                margin-top: 30px;'>
+                    <h1 style="text-align: center;">Estimated quantity of harvest <br>(tons per hectare)</h1>
+                    <p style="font-size: 4rem;
+                    text-align: center;
+                    margin-top: 30px;">{{ session['res'] }} t</p>
+                </div>
+            {% endif %}    
+        </div>
+
+        <div class="disaster" id="disaster">
+            <div class="text-col">
+                <h1>Disaster</h1>
+                <p>Insert your coordinates and we will tell you if there will be flood and drought</p>
+            </div>
+            <div class="row">
+                <form action="/get_disaster" method="post">
+                    <label for="lat">Latitude</label>
+                    <input type="text" name="lat" id="lat" placeholder="Enter the latitude">
+                    <label for="lon">Longitude</label>
+                    <input type="text" name="lon" id="lon" placeholder="Enter the longitude">
+                    <input type="submit" value="Get disaster">
+                </form>
+            </div>
+            <div class="result_row">
+                <div class="result">
+                    <h1>Drought</h1>
+                    <p>{{ session['drought'] }}</p>
+                </div>
+                <div class="result">
+                    <h1>Flood</h1>
+                    <p>{{ session['flood'] }}</p>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
