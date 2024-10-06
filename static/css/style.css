@@ -1,0 +1,438 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+
+
+header {
+    width: 100%;
+    height: 100vh;
+    background-image: url('../img/background_1.webp');
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    padding: 30px 0px;
+}
+
+nav h1 {
+    color: #cbcdff;
+    text-transform: uppercase;
+    font-size: 3rem;
+    margin-left: 60px;
+    text-shadow: 0 0 10px black;
+}
+
+nav ul {
+    width: 30vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-right: 30px;
+}
+
+nav li {
+    list-style: none;
+}
+
+nav a {
+    color: #cbcdff;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: bold;
+    transition: all 0.4s ease-in-out;
+    border: 3px solid #cbcdff;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+nav a:hover {
+    color: #141414;
+    background-color: #cbcdff;
+
+}
+
+
+header .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: #cbcdff;
+    text-align: center;
+    width: 98vw;
+    padding: 0 5px;
+}
+
+header .text-col a {
+    text-decoration: none;
+    color: #cbcdff;
+    border: 2px solid #cbcdff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 30px;
+    transition: all 0.4s ease-in-out;
+}
+
+header .text-col a:hover {
+    background-color: #cbcdff;
+    color: #141414;
+}
+
+header .text-col h1 {
+    font-size: 3rem;
+    text-shadow: 0 0 10px black;
+}
+header .text-col {
+    width: 29vw;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content_1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 110vh;
+    background-color: #141414;
+    color: #cbcdff;
+}
+
+.content_1 .text-col {
+    font-size: 3rem;
+}
+
+.content_1 .row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.challenge_description {
+    width: 30vw;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #cbcdff;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    box-shadow: 0 0 10px #cbcdff;
+    transition: all 0.4s ease-in-out;
+}
+.challenge_description:hover {
+    box-shadow: 0 10px 20px #cbcdff;
+    background-color: #cbcdff1c;
+    transform: translateY(-10px);
+}
+
+.challenge_description {
+    text-decoration: none;
+    color: #cbcdff;
+}
+
+.challenge_description h1 {
+    font-size: 3.2rem;
+    top: 0;
+}
+
+.challenge_description p {
+    font-size: 1.8rem;
+    margin-top: 20px;
+}
+
+#c_d_2 {
+    margin-top: 200px;
+}
+
+.information {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #cbcdff;
+}
+
+.information a {
+    text-decoration: none;
+    color: #141414;
+    border: 2px solid #141414;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    transition: all 0.4s ease-in-out;
+}
+
+.information a:hover {
+    background-color: #141414;
+    color: #cbcdff;
+}
+
+.information .text-col {
+    font-size: 3rem;
+    margin-top: 150px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.information .row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.information .row form {
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 5px solid #141414;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px #141414;
+    transition: all 0.4s ease-in-out;
+    margin-bottom: 150px;
+}
+
+.information .row form label {
+    font-size: 2rem;
+    margin-bottom: 10px;
+
+}
+
+.information .row form input {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    padding: 10px;
+    border: 2px solid #141414;
+    border-radius: 10px;
+    background-color: #14141431;
+    color:#000000
+}
+
+.information .row form input[type="submit"] {
+    background-color: #141414;
+    color: #cbcdff;
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    border: 3px solid #141414;
+}
+
+.information .row form input[type="submit"]:hover {
+    background-color: #cbcdff;
+    color: #141414;
+}
+
+tr {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    padding: 10px;
+    box-shadow: 0 0 10px #141414;
+    transition: all 0.4s ease-in-out;
+}
+
+tr:nth-child(even) {
+    background-color: #141414a0;
+    color: #cbcdff;
+}
+
+th {
+    padding: 5px 10px;
+    font-size: 2rem;
+    border: 2px solid #141414;
+
+}
+
+tr:nth-child(odd) {
+    background-color: #cbcdff;
+    color: #141414;
+}
+
+td {
+    padding: 5px 10px;
+    border: 2px solid #141414;
+}
+
+table {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-collapse: collapse;
+}
+
+.prediction {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 50px 0;
+    min-height: 100vh;
+    background-color: #141414;
+    color: #cbcdff;
+}
+
+.prediction form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    min-height: 50vh;
+    background-color: #141414;
+    color: #cbcdff;
+    padding: 20px;
+    font-size: 2rem;
+    box-shadow: 0 0 10px #cbcdff;
+}
+
+.prediction form label {
+    margin-bottom: 10px;
+}
+
+.prediction form input {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #cbcdff;
+    border-radius: 10px;
+    font-size: 2rem;
+    background-color: #14141431;
+    color: #cbcdff;
+    width: 35vw;
+}
+
+.disaster {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #cbcdff;
+    color: #141414;
+}
+
+
+.disaster .text-col {
+    font-size: 3rem;
+    margin-top: 150px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.disaster .row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.disaster .row form {
+    width: 30vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 5px solid #141414;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px #141414;
+    transition: all 0.4s ease-in-out;
+    margin-bottom: 150px;
+}
+
+.disaster .row form label {
+    font-size: 2rem;
+    margin-bottom: 10px;
+
+}
+
+.disaster .row form input {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    padding: 10px;
+    border: 2px solid #141414;
+    border-radius: 10px;
+    background-color: #14141431;
+    color:#000000
+}
+
+.disaster .row form input[type="submit"] {
+    background-color: #141414;
+    color: #cbcdff;
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s ease-in-out;
+    border: 3px solid #141414;
+}
+
+.disaster .row form input[type="submit"]:hover {
+    background-color: #cbcdff;
+    color: #141414;
+}
+
+.disaster .result_row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 100px;
+}
+
+.result {
+    color: #141414;
+    border: 2px solid #141414;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #141414;
+    padding: 20px 30px;
+    width: 30vw;
+}
+
+.result h1 {
+    font-size: 3rem;
+    text-align: center;
+}
+
+.result p {
+    font-size: 2rem;
+    text-align: center;
+}
+
